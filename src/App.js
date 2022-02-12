@@ -1,8 +1,11 @@
+import React,{ Component } from "react";
+import { Router } from "react-router-dom";
+import Login from './log'
 function App() {
 	return (
-		<div className="App">
-			<h1>Hello World!!</h1>
-		</div>
+		<div>
+			<Login/>
+		</div>	
 	);
 }
 
