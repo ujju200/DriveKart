@@ -1,20 +1,12 @@
 import React from "react";
-import {
-  Form,
-  FormGroup,
-  Button,
-  FloatingLabel,
-  Container,
-  Row,
-  Col,
-} from "react-bootstrap";
+import { Form, FormGroup, Button, Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 class LoginForm extends React.Component {
   render() {
     return (
       <div>
         <Form
-          className="login-form "
           style={{
             display: "inline-block",
             marginTop: "40px",
@@ -25,7 +17,7 @@ class LoginForm extends React.Component {
           <FormGroup className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Username</Form.Label>
 
-            <Form.Control type="text" placeholder="Email" />
+            <Form.Control type="text" placeholder="Username" />
           </FormGroup>
           <FormGroup className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Password</Form.Label>
@@ -35,7 +27,7 @@ class LoginForm extends React.Component {
             <Row xs="auto">
               <Col>
                 <Button
-                  variant="primary"
+                  variant="outline-dark"
                   size="lg"
                   style={{ marginTop: "10px" }}
                 >
@@ -44,7 +36,7 @@ class LoginForm extends React.Component {
               </Col>
               <Col>
                 <Button
-                  variant="primary"
+                  variant="outline-dark"
                   size="lg"
                   style={{ marginTop: "10px" }}
                 >
@@ -54,6 +46,19 @@ class LoginForm extends React.Component {
             </Row>
           </Container>
         </Form>
+        <h6 style={{ marginTop: "20px", fontWeight: "400" }}>
+          Don&apos;t have an account?
+          <Link
+            to="/signupDriver"
+            style={{
+              color: "45baea",
+              marginLeft: "5px",
+              textDecoration: "none",
+            }}
+          >
+            SignUp
+          </Link>
+        </h6>
       </div>
     );
   }
