@@ -1,8 +1,45 @@
 import React from "react";
-import { Navbar, Container, Row, Col, Form, FormGroup } from "react-bootstrap";
+import {
+  Navbar,
+  Container,
+  Row,
+  Col,
+  Form,
+  FormGroup,
+  Button,
+} from "react-bootstrap";
+import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 
 class SignupDriver extends React.Component {
+  constructor(props) {
+    super();
+    this.state = {
+      name: "",
+      phoneno: "",
+      email: "",
+      username: "",
+      password: "",
+      confirm: "",
+      truckNo: "",
+      truckCapacity: "",
+      transporterName: "",
+      drivingExp: "",
+      route1fromstate: "",
+      route1fromcity: "",
+      route1tostate: "",
+      route1tocity: "",
+      route2fromstate: "",
+      route2fromcity: "",
+      route2tostate: "",
+      route2tocity: "",
+      route3fromstate: "",
+      route3fromcity: "",
+      route3tostate: "",
+      route3tocity: "",
+    };
+  }
+
   render() {
     return (
       <div>
@@ -29,7 +66,7 @@ class SignupDriver extends React.Component {
         >
           SignUp
         </h2>
-        <Form style={{ marginLeft: "50px" }}>
+        <Form style={{ marginLeft: "50px", marginBottom: "50px" }}>
           <p
             className="mb-2"
             style={{ textAlign: "left", fontSize: "20px", fontWeight: "500" }}
@@ -132,6 +169,56 @@ class SignupDriver extends React.Component {
 
                   <Form.Control type="text" placeholder="Driving Experience" />
                 </FormGroup>
+              </Col>
+            </Row>
+          </Container>
+          <p
+            className="mb-2"
+            style={{
+              textAlign: "left",
+              fontSize: "20px",
+              marginTop: "40px",
+              fontWeight: "500",
+            }}
+          >
+            Interested Routes
+          </p>
+          <Container>
+            <Row>
+              <Col></Col>
+              <Col></Col>
+              <Col></Col>
+              <Col></Col>
+              <Col></Col>
+              <Col></Col>
+              <Col></Col>
+            </Row>
+          </Container>
+          <Container>
+            <Row xs="auto">
+              <Col>
+                <Button
+                  variant="outline-dark"
+                  size="lg"
+                  style={{ marginTop: "10px" }}
+                >
+                  SignUp
+                </Button>
+              </Col>
+              <Col>
+                <h6 style={{ marginTop: "20px", fontWeight: "400" }}>
+                  Have an Account already?
+                  <Link
+                    to="/login"
+                    style={{
+                      color: "45baea",
+                      marginLeft: "5px",
+                      textDecoration: "none",
+                    }}
+                  >
+                    Login
+                  </Link>
+                </h6>
               </Col>
             </Row>
           </Container>

@@ -1,10 +1,11 @@
 import React from "react";
-import { Navbar, Container, Row,Button, Col } from "react-bootstrap";
+import { Navbar, Container, Row, Button, Col } from "react-bootstrap";
 import logo from "../images/logo.png";
 import About from "../components/About";
 
 class Landing extends React.Component {
   render() {
+    console.log("rrg");
     return (
       <div>
         <Navbar bg="light" variant="light">
@@ -20,19 +21,20 @@ class Landing extends React.Component {
               DriveKart
             </Navbar.Brand>
           </Container>
-          </Navbar>
-          <Container>
-              <Row className="justify-content-md-center">
-              <Col xs lg="2"></Col>
-              <Col md="auto"><About /></Col>
-              <Col xs lg="2"></Col> 
-              </Row>
-              <Row className="justify-content-md-center">
-
-            <Row xs="auto">
+        </Navbar>
+        <Container>
+          <Row className="justify-content-md-center">
             <Col xs lg="2"></Col>
-            <Col xs lg="1"></Col>
-            <Col xs lg="1"></Col>
+            <Col md="auto">
+              <About />
+            </Col>
+            <Col xs lg="2"></Col>
+          </Row>
+          <Row className="justify-content-md-center">
+            <Row xs="auto">
+              <Col xs lg="2"></Col>
+              <Col xs lg="1"></Col>
+              <Col xs lg="1"></Col>
               <Col>
                 <Button
                   variant="primary"
@@ -51,10 +53,10 @@ class Landing extends React.Component {
                   Enter As Driver
                 </Button>
               </Col>
-              <Col xs lg="2"></Col>  
+              <Col xs lg="2"></Col>
             </Row>
-              </Row>              
-          </Container>             
+          </Row>
+        </Container>
       </div>
     );
   }

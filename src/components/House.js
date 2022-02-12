@@ -8,7 +8,7 @@ class House extends React.Component {
     return (
       <Router>
         <Routes>
-          <Route exact path="/landing" element={<Landing />} />
+          <Route exact path="/" element={<Landing />} />
           <Route path="/login" exact element={<Login />} />
           <Route path="/signupDriver" exact element={<SignupDriver />} />
         </Routes>
