@@ -8,10 +8,7 @@ import Button from 'react-bootstrap/Button';
 class Login extends Component {
 	render() {
 		return (
-			<Form className="login-form">
-				<h1>
-					<span className="font-weight-bold">DriveKart</span>.com
-				</h1>	
+			<Form className="login-form">	
 				<h2 className="text-center">Welcome Dealers</h2>
 				<FormGroup>
 					<label>Email</label>
