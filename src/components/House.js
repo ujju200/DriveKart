@@ -11,6 +11,8 @@ import DriverDashboard from "../pages/Driver/DashboardDriver";
 import LoginDealer from "../pages/Dealer/LoginDealer";
 import LoginOtpDealer from "../pages/Dealer/LoginOtpDealer";
 import SignupDealer from "../pages/Dealer/SignupDealer.js";
+import DealerDashboardHome from "../pages/Dealer/DashboardDealerHome";
+import DealerDashboardSearch from "../pages/Dealer/DashboardDealerSearch";
 
 class House extends React.Component {
   render() {
@@ -27,6 +29,16 @@ class House extends React.Component {
           <Route path="/dealer/login" exact element={<LoginDealer />} />
           <Route path="/dealer/loginotp" exact element={<LoginOtpDealer />} />
           <Route path="/dealer/signup" exact element={<SignupDealer />} />
+          <Route
+            path="/dealer/dashboard/home"
+            exact
+            element={<DealerDashboardHome />}
+          />
+          <Route
+            path="/dealer/dashboard/search"
+            exact
+            element={<DealerDashboardSearch />}
+          />
         </Routes>
       </Router>
     );
