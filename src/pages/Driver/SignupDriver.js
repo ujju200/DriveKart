@@ -28,15 +28,15 @@ class SignupDriver extends React.Component {
       drivingExp: "",
       route1fromstate: "",
       route1fromcity: "",
-      route1tostate: "Andaman and Nicobar Island (UT)",
+      route1tostate: "",
       route1tocity: "",
-      route2fromstate: "Andaman and Nicobar Island (UT)",
+      route2fromstate: "",
       route2fromcity: "",
-      route2tostate: "Andaman and Nicobar Island (UT)",
+      route2tostate: "",
       route2tocity: "",
-      route3fromstate: "Andaman and Nicobar Island (UT)",
+      route3fromstate: "",
       route3fromcity: "",
-      route3tostate: "Andaman and Nicobar Island (UT)",
+      route3tostate: "",
       route3tocity: "",
     };
 
@@ -52,12 +52,77 @@ class SignupDriver extends React.Component {
   }
 
   handleSubmit(event) {
+    if (
+      this.state.route1fromstate === this.state.route1tostate &&
+      this.state.route1fromcity === this.state.route1tocity
+    ) {
+      console.log(
+        "In Route-1 From and TO are same, please keep them different"
+      );
+      event.preventDefault();
+      return;
+    }
+
+    if (
+      this.state.route2fromstate === this.state.route2tostate &&
+      this.state.route2fromcity === this.state.route2tocity
+    ) {
+      console.log(
+        "In Route-2 From and TO are same, please keep them different"
+      );
+      event.preventDefault();
+      return;
+    }
+
+    if (
+      this.state.route3fromstate === this.state.route3tostate &&
+      this.state.route3fromcity === this.state.route3tocity
+    ) {
+      console.log(
+        "In Route-3 From and TO are same, please keep them different"
+      );
+      event.preventDefault();
+      return;
+    }
+
+    if (
+      this.state.route1fromstate === this.state.route2fromstate &&
+      this.state.route1fromcity === this.state.route2fromcity &&
+      this.state.route1tostate === this.state.route2tostate &&
+      this.state.route1tocity === this.state.route2tocity
+    ) {
+      console.log("Route-1 and Route-2 are same, please keep them different");
+      event.preventDefault();
+      return;
+    }
+
+    if (
+      this.state.route1fromstate === this.state.route3fromstate &&
+      this.state.route1fromcity === this.state.route3fromcity &&
+      this.state.route1tostate === this.state.route3tostate &&
+      this.state.route1tocity === this.state.route3tocity
+    ) {
+      console.log("Route-1 and Route-3 are same, please keep them different");
+      event.preventDefault();
+      return;
+    }
+
+    if (
+      this.state.route3fromstate === this.state.route2fromstate &&
+      this.state.route3fromcity === this.state.route2fromcity &&
+      this.state.route3tostate === this.state.route2tostate &&
+      this.state.route3tocity === this.state.route2tocity
+    ) {
+      console.log("Route-2 and Route-3 are same, please keep them different");
+      event.preventDefault();
+      return;
+    }
+
     console.log("Submitted", JSON.stringify(this.state));
     event.preventDefault();
   }
 
   render() {
-    console.log("rend beigin");
     return (
       <div>
         <Navbar bg="light" variant="light">
@@ -72,6 +137,12 @@ class SignupDriver extends React.Component {
               />{" "}
               DriveKart
             </Navbar.Brand>
+            <Navbar.Text
+              className="justify-content-end"
+              style={{ fontSize: "25px", fontWeight: "400", color: "black" }}
+            >
+              For Driver
+            </Navbar.Text>
           </Container>
         </Navbar>
         <h2
@@ -272,8 +343,8 @@ class SignupDriver extends React.Component {
           </p>
           <Container>
             <Row className="mb-2">
-              <Col>Route 1:</Col>
-              <Col>From:</Col>
+              <Col xs={2}>Route 1:</Col>
+              <Col xs={1}>From:</Col>
               <Col>
                 <Form.Select
                   required
@@ -281,7 +352,7 @@ class SignupDriver extends React.Component {
                   onChange={this.handleChange}
                   name="route1fromstate"
                 >
-                  <option value="Select State" defaultValue>
+                  <option value="" defaultValue>
                     Select State
                   </option>
                   {Object.entries(Routedict).map(([key]) => (
@@ -296,7 +367,7 @@ class SignupDriver extends React.Component {
                   onChange={this.handleChange}
                   name="route1fromcity"
                 >
-                  <option value="Select City" defaultValue>
+                  <option value="" defaultValue>
                     Select City
                   </option>
                   {this.state.route1fromstate !== "" &&
@@ -305,13 +376,19 @@ class SignupDriver extends React.Component {
                     ))}
                 </Form.Select>
               </Col>
-              <Col>To:</Col>
+              <Col xs={1} style={{ marginLeft: "60px" }}>
+                To:
+              </Col>
               <Col>
                 <Form.Select
+                  required
                   value={this.state.route1tostate}
                   onChange={this.handleChange}
                   name="route1tostate"
                 >
+                  <option value="" defaultValue>
+                    Select State
+                  </option>
                   {Object.entries(Routedict).map(([key]) => (
                     <option value={key}>{key}</option>
                   ))}
@@ -319,25 +396,34 @@ class SignupDriver extends React.Component {
               </Col>
               <Col>
                 <Form.Select
+                  required
                   value={this.state.route1tocity}
                   onChange={this.handleChange}
                   name="route1tocity"
                 >
-                  {Routedict[this.state.route1tostate].map((st) => (
-                    <option value={st}>{st}</option>
-                  ))}
+                  <option value="" defaultValue>
+                    Select City
+                  </option>
+                  {this.state.route1tostate !== "" &&
+                    Routedict[this.state.route1tostate].map((st) => (
+                      <option value={st}>{st}</option>
+                    ))}
                 </Form.Select>
               </Col>
             </Row>
             <Row className="mb-2">
-              <Col>Route 2:</Col>
-              <Col>From:</Col>
+              <Col xs={2}>Route 2:</Col>
+              <Col xs={1}>From:</Col>
               <Col>
                 <Form.Select
+                  required
                   value={this.state.route2fromstate}
                   onChange={this.handleChange}
                   name="route2fromstate"
                 >
+                  <option value="" defaultValue>
+                    Select State
+                  </option>
                   {Object.entries(Routedict).map(([key]) => (
                     <option value={key}>{key}</option>
                   ))}
@@ -345,22 +431,33 @@ class SignupDriver extends React.Component {
               </Col>
               <Col>
                 <Form.Select
+                  required
                   value={this.state.route2fromcity}
                   onChange={this.handleChange}
                   name="route2fromcity"
                 >
-                  {Routedict[this.state.route2fromstate].map((st) => (
-                    <option value={st}>{st}</option>
-                  ))}
+                  <option value="" defaultValue>
+                    Select City
+                  </option>
+                  {this.state.route2fromstate !== "" &&
+                    Routedict[this.state.route2fromstate].map((st) => (
+                      <option value={st}>{st}</option>
+                    ))}
                 </Form.Select>
               </Col>
-              <Col>To:</Col>
+              <Col xs={1} style={{ marginLeft: "60px" }}>
+                To:
+              </Col>
               <Col>
                 <Form.Select
+                  required
                   value={this.state.route2tostate}
                   onChange={this.handleChange}
                   name="route2tostate"
                 >
+                  <option value="" defaultValue>
+                    Select State
+                  </option>
                   {Object.entries(Routedict).map(([key]) => (
                     <option value={key}>{key}</option>
                   ))}
@@ -368,25 +465,34 @@ class SignupDriver extends React.Component {
               </Col>
               <Col>
                 <Form.Select
+                  required
                   value={this.state.route2tocity}
                   onChange={this.handleChange}
                   name="route2tocity"
                 >
-                  {Routedict[this.state.route2tostate].map((st) => (
-                    <option value={st}>{st}</option>
-                  ))}
+                  <option value="" defaultValue>
+                    Select City
+                  </option>
+                  {this.state.route2tostate !== "" &&
+                    Routedict[this.state.route2tostate].map((st) => (
+                      <option value={st}>{st}</option>
+                    ))}
                 </Form.Select>
               </Col>
             </Row>
             <Row className="mb-2">
-              <Col>Route 3:</Col>
-              <Col>From:</Col>
+              <Col xs={2}>Route 3:</Col>
+              <Col xs={1}>From:</Col>
               <Col>
                 <Form.Select
+                  required
                   value={this.state.route3fromstate}
                   onChange={this.handleChange}
                   name="route3fromstate"
                 >
+                  <option value="" defaultValue>
+                    Select State
+                  </option>
                   {Object.entries(Routedict).map(([key]) => (
                     <option value={key}>{key}</option>
                   ))}
@@ -394,22 +500,33 @@ class SignupDriver extends React.Component {
               </Col>
               <Col>
                 <Form.Select
+                  required
                   value={this.state.route3fromcity}
                   onChange={this.handleChange}
                   name="route3fromcity"
                 >
-                  {Routedict[this.state.route3fromstate].map((st) => (
-                    <option value={st}>{st}</option>
-                  ))}
+                  <option value="" defaultValue>
+                    Select City
+                  </option>
+                  {this.state.route3fromstate !== "" &&
+                    Routedict[this.state.route3fromstate].map((st) => (
+                      <option value={st}>{st}</option>
+                    ))}
                 </Form.Select>
               </Col>
-              <Col>To:</Col>
+              <Col xs={1} style={{ marginLeft: "60px" }}>
+                To:
+              </Col>
               <Col>
                 <Form.Select
+                  required
                   value={this.state.route3tostate}
                   onChange={this.handleChange}
                   name="route3tostate"
                 >
+                  <option value="" defaultValue>
+                    Select State
+                  </option>
                   {Object.entries(Routedict).map(([key]) => (
                     <option value={key}>{key}</option>
                   ))}
@@ -417,13 +534,18 @@ class SignupDriver extends React.Component {
               </Col>
               <Col>
                 <Form.Select
+                  required
                   value={this.state.route3tocity}
                   onChange={this.handleChange}
                   name="route3tocity"
                 >
-                  {Routedict[this.state.route3tostate].map((st) => (
-                    <option value={st}>{st}</option>
-                  ))}
+                  <option value="" defaultValue>
+                    Select City
+                  </option>
+                  {this.state.route3tostate !== "" &&
+                    Routedict[this.state.route3tostate].map((st) => (
+                      <option value={st}>{st}</option>
+                    ))}
                 </Form.Select>
               </Col>
             </Row>
@@ -431,20 +553,22 @@ class SignupDriver extends React.Component {
           <Container>
             <Row xs="auto">
               <Col>
-                <Button
-                  variant="outline-dark"
-                  size="lg"
-                  style={{ marginTop: "10px" }}
-                  type="submit"
-                >
-                  SignUp
-                </Button>
+                <Link to="/driver/login">
+                  <Button
+                    variant="outline-dark"
+                    size="lg"
+                    style={{ marginTop: "10px" }}
+                    type="submit"
+                  >
+                    SignUp
+                  </Button>
+                </Link>
               </Col>
               <Col>
                 <h6 style={{ marginTop: "20px", fontWeight: "400" }}>
                   Have an Account already?
                   <Link
-                    to="/login"
+                    to="/driver/login"
                     style={{
                       color: "45baea",
                       marginLeft: "5px",
