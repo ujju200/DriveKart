@@ -24,7 +24,7 @@ class LoginOtpDealer extends React.Component {
               className="justify-content-end"
               style={{ fontSize: "25px", fontWeight: "400", color: "black" }}
             >
-              For Driver
+              For Dealer
             </Navbar.Text>
           </Container>
         </Navbar>

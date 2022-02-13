@@ -113,16 +113,16 @@ class LoginOtpForm extends React.Component {
           <Container fluid>
             <Row xs="auto">
               <Col>
-                {/* <Link to={this.props.loginurl}> */}
-                <Button
-                  variant="outline-dark"
-                  size="lg"
-                  style={{ marginTop: "10px" }}
-                  type="submit"
-                >
-                  LOG IN
-                </Button>
-                {/* </Link> */}
+                <Link to={this.props.loginurl}>
+                  <Button
+                    variant="outline-dark"
+                    size="lg"
+                    style={{ marginTop: "10px" }}
+                    type="submit"
+                  >
+                    LOG IN
+                  </Button>
+                </Link>
               </Col>
               <Col>
                 <Link to={this.props.loginpasswordurl}>
