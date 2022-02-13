@@ -5,7 +5,7 @@ import LoginDealer from "../pages/Dealer/LoginDealer";
 import Landing from "../pages/Landing.js";
 import SignupDriver from "../pages/Driver/SignupDriver.js";
 import SignupDealer from "../pages/Dealer/SignupDealer.js";
-import DriverDashboard from "../pages/Driver/Dashboard";
+import DriverDashboard from "../pages/Driver/DashboardDriver";
 class House extends React.Component {
   render() {
     return (
