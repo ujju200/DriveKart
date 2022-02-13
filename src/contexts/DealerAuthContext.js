@@ -1,6 +1,7 @@
 import React, { createContext } from "react";
 import axios from "axios";
 import env from "../env.json";
+import showToast from "../helperFunctions/toast";
 
 export const DealerAuthContext = createContext();
 
@@ -24,20 +25,20 @@ class DealerAuthContextProvider extends React.Component {
 	async componentDidMount() {
 		let dealerDetails = { isLoading: false };
 		try {
-			if (localStorage.get("token")) {
+			if (localStorage.getItem("token")) {
 				const token = localStorage.getItem("token");
 				const res = await axios.post(env.api + "/dealer/other/", {
 					token,
 				});
-				console.log(res);
-				if (
-					res.data !== "Unauthorised" ||
-					res.data !== "Server Internal Error"
-				)
-					dealerDetails = { isLoading: false, ...res.data };
+				dealerDetails = { isLoading: false, ...res.data };
 			}
 		} catch (err) {
-			console.log(err.message);
+			if (err.response) {
+				showToast(err.response.data, false);
+				if (err.response.data === "Unauthorised") {
+					localStorage.removeItem("token");
+				}
+			}
 		}
 		this.setState(dealerDetails);
 	}
@@ -54,3 +55,11 @@ class DealerAuthContextProvider extends React.Component {
 }
 
 export default DealerAuthContextProvider;
+
+export const withDealer = (Component) => {
+	return (
+		<DealerAuthContextProvider>
+			<Component />
+		</DealerAuthContextProvider>
+	);
+};

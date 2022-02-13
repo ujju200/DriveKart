@@ -12,23 +12,23 @@ import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
 import { Routedict } from "../../data/statesAndCities.js";
 import axios from "axios";
-import { toast } from "react-toastify";
 import env from "../../env.json";
 import { withRouter } from "../../customHooks/WithRouter";
+import showToast from "../../helperFunctions/toast";
 
 class SignupDealer extends React.Component {
 	constructor(props) {
 		super();
 		this.state = {
 			name: "",
-			phoneno: "",
+			phoneno: "", //should be changed to mobile
 			email: "",
 			username: "",
 			password: "",
 			confirm: "",
 			state: "",
 			city: "",
-			nature: "",
+			nature: "", //should be changed to material
 			weight: "",
 			quantity: "",
 			isLoading: false,
@@ -50,28 +50,11 @@ class SignupDealer extends React.Component {
 			event.preventDefault();
 			this.setState({ isLoading: true });
 			await axios.post(env.api + "/dealer/signup", this.state);
-			toast.success("You have signed In successfully", {
-				position: "bottom-right",
-				autoClose: 5000,
-				hideProgressBar: false,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined,
-			});
-			console.log(this.props.navigate);
+			showToast("You have signed In successfully", true);
 			this.props.navigate("/dealer/login");
 		} catch (err) {
 			for (let key in err.response.data) {
-				toast.error(err.response.data[key], {
-					position: "bottom-right",
-					autoClose: 5000,
-					hideProgressBar: false,
-					closeOnClick: true,
-					pauseOnHover: true,
-					draggable: true,
-					progress: undefined,
-				});
+				showToast(err.response.data[key], false);
 			}
 		}
 		this.setState({ isLoading: false });
