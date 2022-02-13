@@ -53,9 +53,10 @@ class SignupDealer extends React.Component {
 			showToast("You have signed In successfully", true);
 			this.props.navigate("/dealer/login");
 		} catch (err) {
-			for (let key in err.response.data) {
-				showToast(err.response.data[key], false);
-			}
+			if (err.response)
+				for (let key in err.response.data) {
+					showToast(err.response.data[key], false);
+				}
 		}
 		this.setState({ isLoading: false });
 	}

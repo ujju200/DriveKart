@@ -13,6 +13,7 @@ import LoginOtpDealer from "../pages/Dealer/LoginOtpDealer";
 import SignupDealer from "../pages/Dealer/SignupDealer.js";
 
 import { withDealer } from "../contexts/DealerAuthContext";
+import { withDriver } from "../contexts/DriverAuthContext";
 
 class House extends React.Component {
 	render() {
@@ -23,12 +24,12 @@ class House extends React.Component {
 					<Route
 						path="/driver/login"
 						exact
-						element={<LoginDriver />}
+						element={withDriver(LoginDriver)}
 					/>
 					<Route
 						path="/driver/loginotp"
 						exact
-						element={<LoginOtpDriver />}
+						element={withDriver(LoginOtpDriver)}
 					/>
 					<Route
 						path="/driver/signup"
@@ -38,7 +39,7 @@ class House extends React.Component {
 					<Route
 						path="/driver/dashboard"
 						exact
-						element={<DriverDashboard />}
+						element={withDriver(DriverDashboard)}
 					/>
 
 					<Route
