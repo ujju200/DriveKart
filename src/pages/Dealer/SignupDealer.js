@@ -9,9 +9,9 @@ import {
   Button,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import logo from "../images/logo.png";
+import logo from "../../images/logo.png";
 
-class SignupDriver extends React.Component {
+class SignupDealer extends React.Component {
   constructor(props) {
     super();
     this.state = {
@@ -21,25 +21,13 @@ class SignupDriver extends React.Component {
       username: "",
       password: "",
       confirm: "",
-      truckNo: "",
-      truckCapacity: "",
-      transporterName: "",
-      drivingExp: "",
-      route1fromstate: "",
-      route1fromcity: "",
-      route1tostate: "",
-      route1tocity: "",
-      route2fromstate: "",
-      route2fromcity: "",
-      route2tostate: "",
-      route2tocity: "",
-      route3fromstate: "",
-      route3fromcity: "",
-      route3tostate: "",
-      route3tocity: "",
+      state: "",
+      city: "",
+      nature: "",
+      weight: "",
+      quantity: "",
     };
   }
-
   render() {
     return (
       <div>
@@ -125,49 +113,19 @@ class SignupDriver extends React.Component {
                 </FormGroup>
               </Col>
             </Row>
-          </Container>
-
-          <p
-            className="mb-2"
-            style={{
-              textAlign: "left",
-              fontSize: "20px",
-              marginTop: "40px",
-              fontWeight: "500",
-            }}
-          >
-            Truck Details
-          </p>
-          <Container>
             <Row className="mb-2">
               <Col>
                 <FormGroup controlId="exampleForm.ControlInput1">
-                  <Form.Label>Truck Number</Form.Label>
+                  <Form.Label>State</Form.Label>
 
-                  <Form.Control type="text" placeholder="Truck Number" />
+                  <Form.Control type="text" placeholder="State" />
                 </FormGroup>
               </Col>
               <Col>
                 <FormGroup controlId="exampleForm.ControlInput1">
-                  <Form.Label>Truck Capacity (Rounded in Kgs)</Form.Label>
+                  <Form.Label>City</Form.Label>
 
-                  <Form.Control type="text" placeholder="Truck Capacity" />
-                </FormGroup>
-              </Col>
-            </Row>
-            <Row className="mb-2">
-              <Col>
-                <FormGroup controlId="exampleForm.ControlInput1">
-                  <Form.Label>Transporter Name</Form.Label>
-
-                  <Form.Control type="text" placeholder="Transporter Name" />
-                </FormGroup>
-              </Col>
-              <Col>
-                <FormGroup controlId="exampleForm.ControlInput1">
-                  <Form.Label>Driving Experience (Rounded in Yrs)</Form.Label>
-
-                  <Form.Control type="text" placeholder="Driving Experience" />
+                  <Form.Control type="text" placeholder="City" />
                 </FormGroup>
               </Col>
             </Row>
@@ -181,17 +139,36 @@ class SignupDriver extends React.Component {
               fontWeight: "500",
             }}
           >
-            Interested Routes
+            Goods Details
           </p>
           <Container>
-            <Row>
-              <Col></Col>
-              <Col></Col>
-              <Col></Col>
-              <Col></Col>
-              <Col></Col>
-              <Col></Col>
-              <Col></Col>
+            <Row className="mb-2">
+              <Col>
+                <FormGroup controlId="exampleForm.ControlInput1">
+                  <Form.Label>Nature Of Materials</Form.Label>
+
+                  <Form.Control type="text" placeholder="Nature Of Materials" />
+                </FormGroup>
+              </Col>
+              <Col>
+                <FormGroup controlId="exampleForm.ControlInput1">
+                  <Form.Label>Weight of Materials (in Kgs)</Form.Label>
+
+                  <Form.Control
+                    type="text"
+                    placeholder="Weight of Materials (in Kgs)"
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+            <Row className="mb-2">
+              <Col>
+                <FormGroup controlId="exampleForm.ControlInput1">
+                  <Form.Label>Quantity</Form.Label>
+
+                  <Form.Control type="text" placeholder="Quantity" />
+                </FormGroup>
+              </Col>
             </Row>
           </Container>
           <Container>
@@ -228,4 +205,4 @@ class SignupDriver extends React.Component {
   }
 }
 
-export default SignupDriver;
+export default SignupDealer;
