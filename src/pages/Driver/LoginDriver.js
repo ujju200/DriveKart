@@ -1,9 +1,9 @@
 import React from "react";
 import { Navbar, Container, Row, Col } from "react-bootstrap";
-import logo from "../images/logo.png";
-import About from "../components/About";
-import LoginForm from "../components/LoginForm";
-class Login extends React.Component {
+import logo from "../../images/logo.png";
+import About from "../../components/About";
+import LoginForm from "../../components/LoginForm";
+class LoginDriver extends React.Component {
   render() {
     return (
       <div>
@@ -19,15 +19,25 @@ class Login extends React.Component {
               />{" "}
               DriveKart
             </Navbar.Brand>
+            <Navbar.Text
+              className="justify-content-end"
+              style={{ fontSize: "25px", fontWeight: "400", color: "black" }}
+            >
+              For Driver
+            </Navbar.Text>
           </Container>
         </Navbar>
-        <Container fluid>
+        <Container fluid style={{ marginTop: "60px" }}>
           <Row>
             <Col>
               <About />
             </Col>
             <Col>
-              <LoginForm />
+              <LoginForm
+                loginurl="/driver/dashboard"
+                loginotpurl="/driver/loginotp"
+                signup="/driver/signup"
+              />
             </Col>
           </Row>
         </Container>
@@ -36,4 +46,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default LoginDriver;

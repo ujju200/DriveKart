@@ -9,9 +9,9 @@ import {
   Button,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import logo from "../images/logo.png";
+import logo from "../../images/logo.png";
 import axios from "axios";
-import { Routedict } from "../data/statesAndCities.js";
+import { Routedict } from "../../data/statesAndCities.js";
 
 class SignupDriver extends React.Component {
   constructor(props) {

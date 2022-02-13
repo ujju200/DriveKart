@@ -9,7 +9,6 @@ class About extends React.Component {
         <Card
           style={{
             width: "30rem",
-            marginTop: "60px",
             marginLeft: "40px",
             border: "0px",
           }}

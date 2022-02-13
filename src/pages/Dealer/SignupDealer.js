@@ -9,7 +9,7 @@ import {
   Button,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import logo from "../images/logo.png";
+import logo from "../../images/logo.png";
 
 class SignupDealer extends React.Component {
   constructor(props) {
@@ -21,8 +21,8 @@ class SignupDealer extends React.Component {
       username: "",
       password: "",
       confirm: "",
-      state:"",
-      city:"",
+      state: "",
+      city: "",
       nature: "",
       weight: "",
       quantity: "",
@@ -125,14 +125,11 @@ class SignupDealer extends React.Component {
                 <FormGroup controlId="exampleForm.ControlInput1">
                   <Form.Label>City</Form.Label>
 
-                  <Form.Control
-                    type="text"
-                    placeholder="City"
-                  />
+                  <Form.Control type="text" placeholder="City" />
                 </FormGroup>
               </Col>
-            </Row>            
-          </Container>                            
+            </Row>
+          </Container>
           <p
             className="mb-2"
             style={{
@@ -143,7 +140,7 @@ class SignupDealer extends React.Component {
             }}
           >
             Goods Details
-          </p>       
+          </p>
           <Container>
             <Row className="mb-2">
               <Col>
@@ -157,7 +154,10 @@ class SignupDealer extends React.Component {
                 <FormGroup controlId="exampleForm.ControlInput1">
                   <Form.Label>Weight of Materials (in Kgs)</Form.Label>
 
-                  <Form.Control type="text" placeholder="Weight of Materials (in Kgs)" />
+                  <Form.Control
+                    type="text"
+                    placeholder="Weight of Materials (in Kgs)"
+                  />
                 </FormGroup>
               </Col>
             </Row>
@@ -170,7 +170,7 @@ class SignupDealer extends React.Component {
                 </FormGroup>
               </Col>
             </Row>
-          </Container>             
+          </Container>
           <Container>
             <Row xs="auto">
               <Col>
