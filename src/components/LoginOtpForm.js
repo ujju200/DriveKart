@@ -80,7 +80,7 @@ class LoginOtpForm extends React.Component {
               name="email"
             />
           </FormGroup>
-          <Container>
+          <Container Fluid>
             <Row>
               <Col>
                 <FormGroup
