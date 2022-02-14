@@ -89,7 +89,7 @@ class LoginOtpForm extends React.Component {
       this.setState({
         otpButton: true,
       });
-    }, 10000);
+    }, 30000);
   }
 
   render() {
