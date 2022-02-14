@@ -3,8 +3,10 @@ import { Navbar, Container, Row, Col } from "react-bootstrap";
 import logo from "../../images/logo.png";
 import About from "../../components/About";
 import LoginOtpForm from "../../components/LoginOtpForm";
+import { DealerAuthContext } from "../../contexts/DealerAuthContext";
 
 class LoginOtpDealer extends React.Component {
+	static contextType = DealerAuthContext;
 	render() {
 		return (
 			<div>
@@ -44,6 +46,7 @@ class LoginOtpDealer extends React.Component {
 								signup="/dealer/signup"
 								getOtp="/dealer/otp/generate"
 								verifyOtp="/dealer/otp/verify"
+								context={this.context}
 							/>
 						</Col>
 					</Row>

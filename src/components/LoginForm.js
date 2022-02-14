@@ -2,12 +2,10 @@ import axios from "axios";
 import React from "react";
 import { Form, FormGroup, Button, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { DealerAuthContext } from "../contexts/DealerAuthContext";
 import { withRouter } from "../customHooks/WithRouter";
 import showToast from "../helperFunctions/toast";
 import env from "../env.json";
 class LoginForm extends React.Component {
-	static contextType = DealerAuthContext;
 	constructor(props) {
 		super();
 		this.state = {
@@ -32,7 +30,7 @@ class LoginForm extends React.Component {
 			const res = await axios.post(env.api + this.props.api, this.state);
 			console.log(res);
 			localStorage.setItem("token", res.data.token);
-			this.context.setState(res.data.user);
+			this.props.context.setState(res.data.user);
 			console.log(this.context);
 			showToast("Working!!", true);
 			this.props.navigate(this.props.loginurl);

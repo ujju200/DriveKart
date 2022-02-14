@@ -3,7 +3,9 @@ import { Navbar, Container, Row, Col } from "react-bootstrap";
 import logo from "../../images/logo.png";
 import About from "../../components/About";
 import LoginForm from "../../components/LoginForm";
+import { DealerAuthContext } from "../../contexts/DealerAuthContext";
 class LoginDealer extends React.Component {
+	static contextType = DealerAuthContext;
 	render() {
 		return (
 			<div>
@@ -42,6 +44,7 @@ class LoginDealer extends React.Component {
 								loginotpurl="/dealer/loginotp"
 								signup="/dealer/signup"
 								api="/dealer/login"
+								context={this.context}
 							/>
 						</Col>
 					</Row>

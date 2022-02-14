@@ -5,10 +5,8 @@ import { Link } from "react-router-dom";
 import showToast from "../helperFunctions/toast.js";
 import Timer from "./Timer.js";
 import env from "../env.json";
-import { DealerAuthContext } from "../contexts/DealerAuthContext.js";
 import { withRouter } from "../customHooks/WithRouter.js";
 class LoginOtpForm extends React.Component {
-	static contextType = DealerAuthContext;
 	constructor(props) {
 		super();
 		this.state = {
@@ -50,8 +48,9 @@ class LoginOtpForm extends React.Component {
 				showToast(res.data, false);
 			} else {
 				localStorage.setItem("token", res.data.token);
-				this.context.setState(res.data.user);
+				this.props.context.setState(res.data.user);
 				this.props.navigate(this.props.loginurl);
+				showToast("You are logged In!!", true);
 			}
 		} catch (err) {
 			if (err.response) {

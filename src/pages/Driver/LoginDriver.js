@@ -3,7 +3,9 @@ import { Navbar, Container, Row, Col } from "react-bootstrap";
 import logo from "../../images/logo.png";
 import About from "../../components/About";
 import LoginForm from "../../components/LoginForm";
+import { DriverAuthContext } from "../../contexts/DriverAuthContext";
 class LoginDriver extends React.Component {
+	static contextType = DriverAuthContext;
 	render() {
 		return (
 			<div>
@@ -42,6 +44,7 @@ class LoginDriver extends React.Component {
 								loginotpurl="/driver/loginotp"
 								signup="/driver/signup"
 								api="/driver/login"
+								context={this.context}
 							/>
 						</Col>
 					</Row>

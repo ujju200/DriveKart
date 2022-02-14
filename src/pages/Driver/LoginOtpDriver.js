@@ -3,8 +3,10 @@ import { Navbar, Container, Row, Col } from "react-bootstrap";
 import logo from "../../images/logo.png";
 import About from "../../components/About";
 import LoginOtpForm from "../../components/LoginOtpForm";
+import { DriverAuthContext } from "../../contexts/DriverAuthContext";
 
 class LoginOtpDriver extends React.Component {
+	static contextType = DriverAuthContext;
 	render() {
 		return (
 			<div>
@@ -44,6 +46,7 @@ class LoginOtpDriver extends React.Component {
 								signup="/driver/signup"
 								getOtp="/driver/otp/generate"
 								veriftOtp="/driver/otp/verify"
+								context={this.context}
 							/>
 						</Col>
 					</Row>
