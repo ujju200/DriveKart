@@ -36,40 +36,10 @@ class DriverDashboard extends React.Component {
             </Navbar.Text>
           </Container>
         </Navbar>
-
-        <Navbar bg="light" variant="light" style={{ marginTop: "10px" }}>
-          <Container>
-            <Navbar.Brand href="#home">
-              <h3>Select Routes :-</h3>
-            </Navbar.Brand>
-            <Navbar.Text
-              className="justify-content-end"
-              style={{ fontSize: "25px", fontWeight: "400", color: "black" }}
-            >
-              <NavDropdown
-                id="nav-dropdown-dark-example"
-                title="All Routes "
-                menuVariant="dark"
-                style={{ border: "solid" }}
-              >
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Something else
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Navbar.Text>
-          </Container>
-        </Navbar>
         <Container className="mt-3" style={{ marginBottom: "60px" }}>
           <p style={{ marginTop: "50px", fontSize: "25px" }}>
-            List of dealers who booked you for above mentioned Route :-
+            List of dealers who booked you, All the relevant information of the
+            dealers is provided below :-
           </p>
 
           <DealerCard
