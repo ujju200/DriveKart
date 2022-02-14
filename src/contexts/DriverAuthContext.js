@@ -7,13 +7,14 @@ export const DriverAuthContext = createContext();
 
 class DriverAuthContextProvider extends React.Component {
 	state = {
+		id: null,
 		name: null,
+		age: null,
 		mobile: null,
-		material: null,
-		weight: null,
-		quantity: null,
-		state: null,
-		city: null,
+		truckNum: null,
+		capacity: null,
+		transporterName: null,
+		experience: null,
 		book: null,
 		isLoading: true,
 	};

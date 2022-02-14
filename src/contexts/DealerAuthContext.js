@@ -7,6 +7,7 @@ export const DealerAuthContext = createContext();
 
 class DealerAuthContextProvider extends React.Component {
 	state = {
+		id: null,
 		name: null,
 		mobile: null,
 		material: null,

@@ -4,6 +4,9 @@ import logo from "../../images/logo.png";
 import { Link } from "react-router-dom";
 import DriverCard from "./DriverCard";
 import { Routedict } from "../../data/statesAndCities.js";
+import axios from "axios";
+import env from "../../env.json";
+import showToast from "../../helperFunctions/toast";
 
 class DealerDashboardSearch extends React.Component {
   constructor(props) {
@@ -13,6 +16,7 @@ class DealerDashboardSearch extends React.Component {
       searchfromcity: "",
       searchtostate: "",
       searchtocity: "",
+      drivers: [],
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -26,9 +30,38 @@ class DealerDashboardSearch extends React.Component {
     });
   }
 
-  handleSubmit(event) {
-    console.log("Submitted", JSON.stringify(this.state));
+  async handleSubmit(event) {
     event.preventDefault();
+    try {
+      const res = await axios.post(env.api + "/driver/other/byRoute", {
+        token: localStorage.getItem("token"),
+        fromState: this.state.searchfromstate,
+        fromCity: this.state.searchfromcity,
+        toState: this.state.searchtostate,
+        toCity: this.state.searchtocity,
+      });
+
+      let drivers = [];
+      for (var obj of res.data) {
+        for (var driver of obj.Drivers) {
+          drivers.push({
+            ...driver,
+            fromState: obj.fromState,
+            fromCity: obj.fromCity,
+            toState: obj.toState,
+            toCity: obj.toCity,
+          });
+        }
+      }
+      this.setState({
+        drivers,
+      });
+      console.log(this.state);
+    } catch (err) {
+      if (err.response) {
+        showToast(err.response.data, true);
+      }
+    }
   }
 
   render() {
@@ -36,7 +69,7 @@ class DealerDashboardSearch extends React.Component {
       <div>
         <Navbar bg="light" variant="light">
           <Container>
-            <Navbar.Brand as={Link} to="/">
+            <Navbar.Brand href="#home">
               <img
                 alt=""
                 src={logo}
@@ -48,9 +81,13 @@ class DealerDashboardSearch extends React.Component {
             </Navbar.Brand>
             <Navbar.Text
               className="justify-content-end"
-              style={{ fontSize: "25px", fontWeight: "400", color: "black" }}
+              style={{
+                fontSize: "25px",
+                fontWeight: "400",
+                color: "black",
+              }}
             >
-              Hi Dealer Name
+              Hi {this.context.name}
             </Navbar.Text>
           </Container>
         </Navbar>
@@ -175,6 +212,27 @@ class DealerDashboardSearch extends React.Component {
             </Row>
           </Container>
         </Form>
+        <Container>
+          {this.state.drivers.length === 0 ? (
+            <h1>Sorry there are no drivers on this route</h1>
+          ) : (
+            this.state.drivers.map((driver) => (
+              <DriverCard
+                name={driver.name}
+                phoneno={driver.mobile}
+                truckno={driver.truckNum}
+                capacity={driver.capacity}
+                transname={driver.transporterName}
+                drexp={driver.experience}
+                fromstate={driver.fromState}
+                fromcity={driver.fromCity}
+                tostate={driver.toState}
+                tocity={driver.toCity}
+                id={driver.id}
+              />
+            ))
+          )}
+        </Container>
       </div>
     );
   }

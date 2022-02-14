@@ -48,12 +48,12 @@ class House extends React.Component {
           <Route
             path="/dealer/dashboard/home"
             exact
-            element={<DealerDashboardHome />}
+            element={withDealer(DealerDashboardHome)}
           />
           <Route
             path="/dealer/dashboard/search"
             exact
-            element={<DealerDashboardSearch />}
+            element={withDealer(DealerDashboardSearch)}
           />
 
           <Route path="/loading" exact element={<Loading />} />
