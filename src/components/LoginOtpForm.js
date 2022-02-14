@@ -43,7 +43,7 @@ class LoginOtpForm extends React.Component {
 				otp: this.state.otp,
 			});
 
-			// console.log(res);
+			console.log(res);
 			if (res.status !== 200) {
 				showToast(res.data, false);
 			} else {
@@ -56,6 +56,7 @@ class LoginOtpForm extends React.Component {
 			if (err.response) {
 				showToast(err.response.data, false);
 			}
+			console.log(err.message);
 		}
 	}
 

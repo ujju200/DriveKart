@@ -45,7 +45,7 @@ class LoginOtpDriver extends React.Component {
 								loginpasswordurl="/driver/login"
 								signup="/driver/signup"
 								getOtp="/driver/otp/generate"
-								veriftOtp="/driver/otp/verify"
+								verifyOtp="/driver/otp/verify"
 								context={this.context}
 							/>
 						</Col>
