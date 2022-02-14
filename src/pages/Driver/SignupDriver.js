@@ -68,6 +68,7 @@ class SignupDriver extends React.Component {
       this.props.navigate("/driver/login");
     } catch (err) {
       if (err.response) {
+        console.log(err.response.data);
         for (let key in err.response.data) {
           showToast(err.response.data[key], false);
         }
