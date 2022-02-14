@@ -7,10 +7,13 @@ import LoginDriver from "../pages/Driver/LoginDriver";
 import LoginOtpDriver from "../pages/Driver/LoginOtpDriver";
 import SignupDriver from "../pages/Driver/SignupDriver.js";
 import DriverDashboard from "../pages/Driver/DashboardDriver";
-
+import Loading from "../pages/Loading.js";
+import PageNotFound from "../pages/404-page.jsx";
 import LoginDealer from "../pages/Dealer/LoginDealer";
 import LoginOtpDealer from "../pages/Dealer/LoginOtpDealer";
 import SignupDealer from "../pages/Dealer/SignupDealer.js";
+import DealerDashboardHome from "../pages/Dealer/DashboardDealerHome";
+import DealerDashboardSearch from "../pages/Dealer/DashboardDealerSearch";
 
 import { withDealer } from "../contexts/DealerAuthContext";
 import { withDriver } from "../contexts/DriverAuthContext";
@@ -57,6 +60,20 @@ class House extends React.Component {
 						exact
 						element={<SignupDealer />}
 					/>
+
+					<Route
+						path="/dealer/dashboard/home"
+						exact
+						element={<DealerDashboardHome />}
+					/>
+					<Route
+						path="/dealer/dashboard/search"
+						exact
+						element={<DealerDashboardSearch />}
+					/>
+
+					<Route path="/loading" exact element={<Loading />} />
+					<Route path="/nfound" exact element={<PageNotFound />} />
 				</Routes>
 			</Router>
 		);
