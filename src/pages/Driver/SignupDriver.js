@@ -83,7 +83,7 @@ class SignupDriver extends React.Component {
       <div>
         <Navbar bg="light" variant="light">
           <Container>
-            <Navbar.Brand href="#home">
+            <Navbar.Brand as={Link} to="/">
               <img
                 alt=""
                 src={logo}
@@ -109,11 +109,24 @@ class SignupDriver extends React.Component {
           style={{
             textAlign: "center",
             marginTop: "30px",
-            marginBottom: "30px",
+            marginBottom: "5px",
           }}
         >
           SignUp
         </h2>
+        <hr
+          style={{
+            width: "15%",
+            height: "6px",
+            color: "#2576e8",
+            backgroundColor: "#2576e8",
+            borderWidth: "0",
+            marginTop: "10px",
+            marginLeft: "auto",
+            marginRight: "auto",
+            marginBottom: "30px",
+          }}
+        />
         <Form
           style={{ marginLeft: "50px", marginBottom: "50px" }}
           onSubmit={this.handleSubmit}
@@ -328,8 +341,12 @@ class SignupDriver extends React.Component {
           </p>
           <Container>
             <Row className="mb-2">
-              <Col xs={2}>Route 1:</Col>
-              <Col xs={1}>From:</Col>
+              <Col lg="auto" md="auto">
+                Route 1:
+              </Col>
+              <Col lg="auto" md="auto" style={{ marginLeft: "40px" }}>
+                From:
+              </Col>
               <Col>
                 <Form.Select
                   required
@@ -361,7 +378,7 @@ class SignupDriver extends React.Component {
                     ))}
                 </Form.Select>
               </Col>
-              <Col xs={1} style={{ marginLeft: "60px" }}>
+              <Col lg="auto" md="auto" style={{ marginLeft: "20px" }}>
                 To:
               </Col>
               <Col>
@@ -397,8 +414,12 @@ class SignupDriver extends React.Component {
               </Col>
             </Row>
             <Row className="mb-2">
-              <Col xs={2}>Route 2:</Col>
-              <Col xs={1}>From:</Col>
+              <Col lg="auto" md="auto">
+                Route 2:
+              </Col>
+              <Col lg="auto" md="auto" style={{ marginLeft: "40px" }}>
+                From:
+              </Col>
               <Col>
                 <Form.Select
                   required
@@ -430,7 +451,7 @@ class SignupDriver extends React.Component {
                     ))}
                 </Form.Select>
               </Col>
-              <Col xs={1} style={{ marginLeft: "60px" }}>
+              <Col lg="auto" md="auto" style={{ marginLeft: "20px" }}>
                 To:
               </Col>
               <Col>
@@ -466,8 +487,12 @@ class SignupDriver extends React.Component {
               </Col>
             </Row>
             <Row className="mb-2">
-              <Col xs={2}>Route 3:</Col>
-              <Col xs={1}>From:</Col>
+              <Col lg="auto" md="auto">
+                Route 3:
+              </Col>
+              <Col lg="auto" md="auto" style={{ marginLeft: "40px" }}>
+                From:
+              </Col>
               <Col>
                 <Form.Select
                   required
@@ -499,7 +524,7 @@ class SignupDriver extends React.Component {
                     ))}
                 </Form.Select>
               </Col>
-              <Col xs={1} style={{ marginLeft: "60px" }}>
+              <Col lg="auto" md="auto" style={{ marginLeft: "20px" }}>
                 To:
               </Col>
               <Col>

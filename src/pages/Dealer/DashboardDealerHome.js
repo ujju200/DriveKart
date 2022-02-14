@@ -1,16 +1,7 @@
 import React from "react";
-import {
-  Navbar,
-  Container,
-  Row,
-  Col,
-  Nav,
-  NavDropdown,
-  Card,
-  Divider,
-} from "react-bootstrap";
+import { Navbar, Container, Row, Col } from "react-bootstrap";
 import logo from "../../images/logo.png";
-import { Link, Router, Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import DriverCard from "./DriverCard";
 
 class DealerDashboardHome extends React.Component {
@@ -19,7 +10,7 @@ class DealerDashboardHome extends React.Component {
       <div>
         <Navbar bg="light" variant="light">
           <Container>
-            <Navbar.Brand href="#home">
+            <Navbar.Brand as={Link} to="/">
               <img
                 alt=""
                 src={logo}

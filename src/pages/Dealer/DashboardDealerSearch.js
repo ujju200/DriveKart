@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Container, Row, Col, Form, Button } from "react-bootstrap";
 import logo from "../../images/logo.png";
-import { Link, Router, Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import DriverCard from "./DriverCard";
 import { Routedict } from "../../data/statesAndCities.js";
 
@@ -36,7 +36,7 @@ class DealerDashboardSearch extends React.Component {
       <div>
         <Navbar bg="light" variant="light">
           <Container>
-            <Navbar.Brand href="#home">
+            <Navbar.Brand as={Link} to="/">
               <img
                 alt=""
                 src={logo}

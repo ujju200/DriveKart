@@ -19,65 +19,49 @@ import { withDealer } from "../contexts/DealerAuthContext";
 import { withDriver } from "../contexts/DriverAuthContext";
 
 class House extends React.Component {
-	render() {
-		return (
-			<Router>
-				<Routes>
-					<Route exact path="/" element={<Landing />} />
-					<Route
-						path="/driver/login"
-						exact
-						element={withDriver(LoginDriver)}
-					/>
-					<Route
-						path="/driver/loginotp"
-						exact
-						element={withDriver(LoginOtpDriver)}
-					/>
-					<Route
-						path="/driver/signup"
-						exact
-						element={<SignupDriver />}
-					/>
-					<Route
-						path="/driver/dashboard"
-						exact
-						element={withDriver(DriverDashboard)}
-					/>
+  render() {
+    return (
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Landing />} />
+          <Route path="/driver/login" exact element={withDriver(LoginDriver)} />
+          <Route
+            path="/driver/loginotp"
+            exact
+            element={withDriver(LoginOtpDriver)}
+          />
+          <Route path="/driver/signup" exact element={<SignupDriver />} />
+          <Route
+            path="/driver/dashboard"
+            exact
+            element={withDriver(DriverDashboard)}
+          />
 
-					<Route
-						path="/dealer/login"
-						exact
-						element={withDealer(LoginDealer)}
-					/>
-					<Route
-						path="/dealer/loginotp"
-						exact
-						element={withDealer(LoginOtpDealer)}
-					/>
-					<Route
-						path="/dealer/signup"
-						exact
-						element={<SignupDealer />}
-					/>
+          <Route path="/dealer/login" exact element={withDealer(LoginDealer)} />
+          <Route
+            path="/dealer/loginotp"
+            exact
+            element={withDealer(LoginOtpDealer)}
+          />
+          <Route path="/dealer/signup" exact element={<SignupDealer />} />
 
-					<Route
-						path="/dealer/dashboard/home"
-						exact
-						element={<DealerDashboardHome />}
-					/>
-					<Route
-						path="/dealer/dashboard/search"
-						exact
-						element={<DealerDashboardSearch />}
-					/>
+          <Route
+            path="/dealer/dashboard/home"
+            exact
+            element={<DealerDashboardHome />}
+          />
+          <Route
+            path="/dealer/dashboard/search"
+            exact
+            element={<DealerDashboardSearch />}
+          />
 
-					<Route path="/loading" exact element={<Loading />} />
-					<Route path="/nfound" exact element={<PageNotFound />} />
-				</Routes>
-			</Router>
-		);
-	}
+          <Route path="/loading" exact element={<Loading />} />
+          <Route path="*" exact element={<PageNotFound />} />
+        </Routes>
+      </Router>
+    );
+  }
 }
 
 export default House;
