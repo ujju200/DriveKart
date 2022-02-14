@@ -10,7 +10,7 @@ class Landing extends React.Component {
       <div>
         <Navbar bg="light" variant="light">
           <Container>
-            <Navbar.Brand href="#home">
+            <Navbar.Brand as={Link} to="/">
               <img
                 alt=""
                 src={logo}

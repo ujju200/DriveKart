@@ -66,7 +66,7 @@ class SignupDealer extends React.Component {
       <div>
         <Navbar bg="light" variant="light">
           <Container>
-            <Navbar.Brand href="#home">
+            <Navbar.Brand as={Link} to="/">
               <img
                 alt=""
                 src={logo}
@@ -92,11 +92,24 @@ class SignupDealer extends React.Component {
           style={{
             textAlign: "center",
             marginTop: "30px",
-            marginBottom: "30px",
+            marginBottom: "5px",
           }}
         >
           SignUp
         </h2>
+        <hr
+          style={{
+            width: "15%",
+            height: "6px",
+            color: "#2576e8",
+            backgroundColor: "#2576e8",
+            borderWidth: "0",
+            marginTop: "10px",
+            marginLeft: "auto",
+            marginRight: "auto",
+            marginBottom: "30px",
+          }}
+        />
         <Form
           style={{ marginLeft: "50px", marginBottom: "50px" }}
           onSubmit={this.handleSubmit}
@@ -225,7 +238,7 @@ class SignupDealer extends React.Component {
                 </Form.Select>
               </Col>
               <Col>
-                <Form.Label>State</Form.Label>
+                <Form.Label>City</Form.Label>
                 <Form.Select
                   required
                   value={this.state.city}
@@ -286,9 +299,9 @@ class SignupDealer extends React.Component {
               </Col>
             </Row>
             <Row className="mb-2">
-              <Col>
+              <Col lg="auto" md="auto">
                 <FormGroup controlId="exampleForm.ControlInput1">
-                  <Form.Label>Quantity</Form.Label>
+                  <Form.Label>Quantity (In No.s)</Form.Label>
 
                   <Form.Control
                     type="text"
