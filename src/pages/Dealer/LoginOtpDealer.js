@@ -41,7 +41,7 @@ class LoginOtpDealer extends React.Component {
 						</Col>
 						<Col>
 							<LoginOtpForm
-								loginurl="/dealer/dashboard"
+								loginurl="/dealer/dashboard/home"
 								loginpasswordurl="/dealer/login"
 								signup="/dealer/signup"
 								getOtp="/dealer/otp/generate"

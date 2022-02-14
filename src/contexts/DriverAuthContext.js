@@ -14,7 +14,7 @@ class DriverAuthContextProvider extends React.Component {
 		quantity: null,
 		state: null,
 		city: null,
-		booked: null,
+		book: null,
 		isLoading: true,
 	};
 
