@@ -49,7 +49,12 @@ class DealerDashboardHome extends React.Component {
                   backgroundColor: "#dcdcdc",
                 }}
               >
-                <Link to="/dealer/dashboard/home">Home</Link>
+                <Link
+                  to="/dealer/dashboard/home"
+                  style={{ textDecoration: "none" }}
+                >
+                  Home
+                </Link>
               </div>
             </Col>
             <Col style={{ padding: "0" }}>
@@ -60,7 +65,12 @@ class DealerDashboardHome extends React.Component {
                   padding: "8px 20px",
                 }}
               >
-                <Link to="/dealer/dashboard/search">Search</Link>
+                <Link
+                  to="/dealer/dashboard/search"
+                  style={{ textDecoration: "none" }}
+                >
+                  Search By Route
+                </Link>
               </div>
             </Col>
           </Row>

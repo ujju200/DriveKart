@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Container, Row, Col, Form, FormGroup } from "react-bootstrap";
+import { Navbar, Container, Row, Col, Form, Button } from "react-bootstrap";
 import logo from "../../images/logo.png";
 import { Link, Router, Routes, Route } from "react-router-dom";
 import DriverCard from "./DriverCard";
@@ -65,7 +65,12 @@ class DealerDashboardSearch extends React.Component {
                   padding: "8px 20px",
                 }}
               >
-                <Link to="/dealer/dashboard/home">Home</Link>
+                <Link
+                  to="/dealer/dashboard/home"
+                  style={{ textDecoration: "none" }}
+                >
+                  Home
+                </Link>
               </div>
             </Col>
             <Col style={{ padding: "0" }}>
@@ -77,7 +82,12 @@ class DealerDashboardSearch extends React.Component {
                   backgroundColor: "#dcdcdc",
                 }}
               >
-                <Link to="/dealer/dashboard/search">Search</Link>
+                <Link
+                  to="/dealer/dashboard/search"
+                  style={{ textDecoration: "none" }}
+                >
+                  Search By Route
+                </Link>
               </div>
             </Col>
           </Row>
@@ -89,7 +99,9 @@ class DealerDashboardSearch extends React.Component {
         >
           <Container>
             <Row>
-              <Col>From:</Col>
+              <Col xs="auto" md="auto">
+                From:
+              </Col>
               <Col>
                 <Form.Select
                   required
@@ -121,7 +133,9 @@ class DealerDashboardSearch extends React.Component {
                     ))}
                 </Form.Select>
               </Col>
-              <Col>To:</Col>
+              <Col xs="auto" md="auto" style={{ marginLeft: "30px" }}>
+                To:
+              </Col>
               <Col>
                 <Form.Select
                   required
@@ -153,8 +167,10 @@ class DealerDashboardSearch extends React.Component {
                     ))}
                 </Form.Select>
               </Col>
-              <Col>
-                <button type="submit">Search</button>
+              <Col style={{ marginLeft: "30px" }}>
+                <Button type="submit" variant="primary" size="md">
+                  Search
+                </Button>
               </Col>
             </Row>
           </Container>
