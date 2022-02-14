@@ -2,6 +2,7 @@ import React, { createContext } from "react";
 import axios from "axios";
 import env from "../env.json";
 import showToast from "../helperFunctions/toast";
+import Loading from "../pages/Loading";
 
 export const DealerAuthContext = createContext();
 
@@ -32,12 +33,20 @@ class DealerAuthContextProvider extends React.Component {
 					token,
 				});
 				dealerDetails = { isLoading: false, ...res.data };
+			} else {
+				if (
+					window.location.pathname !== "/dealer/login" &&
+					window.location.pathname !== "/dealer/loginotp"
+				) {
+					window.location.pathname = "/dealer/login";
+				}
 			}
 		} catch (err) {
 			if (err.response) {
 				showToast(err.response.data, false);
-				if (err.response.data === "Unauthorised") {
+				if (err.response.status === 401) {
 					localStorage.removeItem("token");
+					window.location.pathname = "/dealer/login";
 				}
 			}
 		}
@@ -49,7 +58,7 @@ class DealerAuthContextProvider extends React.Component {
 			<DealerAuthContext.Provider
 				value={{ setState: this.setDetails, ...this.state }}
 			>
-				{this.state.isLoading ? <></> : this.props.children}
+				{this.state.isLoading ? <Loading /> : this.props.children}
 			</DealerAuthContext.Provider>
 		);
 	}
