@@ -188,7 +188,10 @@ class SignupDealer extends React.Component {
             <Row className="mb-2">
               <Col>
                 <FormGroup controlId="exampleForm.ControlInput1">
-                  <Form.Label>Password (min-length: 6)</Form.Label>
+                  <Form.Label>
+                    Password (min-length: 6, atleast one no. and one special
+                    character)
+                  </Form.Label>
 
                   <Form.Control
                     type="password"
